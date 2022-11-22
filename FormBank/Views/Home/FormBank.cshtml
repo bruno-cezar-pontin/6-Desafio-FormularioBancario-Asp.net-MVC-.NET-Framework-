@@ -1,0 +1,48 @@
+﻿@model FormBank.Models.Person
+@{
+    ViewBag.Title = "FormBank";
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("/MeuScript/css2.css")
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        document.addEventListener('input', (event) => {
+            if (event.target.getAttribute('name') == "TipoUsuario")
+                if (event.target.value == 'CPF') {
+                    document.getElementById('CPF').style.display = "block";
+                    document.getElementById('CNPJ').style.display = "none";
+                } else {
+                    document.getElementById('CPF').style.display = "none"
+                    document.getElementById('CNPJ').style.display = "block"
+                }
+        })
+    });
+    </script>
+}
+
+@using (Html.BeginForm("FormBank", "Home", FormMethod.Post))
+
+{
+<center>
+    <h4 class="tittle">Insira seus dados</h4>
+    @Html.LabelFor(m => m.Nome) @Html.TextBoxFor(p => p.Nome)
+    <br />
+    @Html.LabelFor(m => m.Sobrenome) @Html.TextBoxFor(p => p.Sobrenome)
+    <br />
+    @Html.LabelFor(m => m.Email) @Html.TextBoxFor(p => p.Email)
+    <br />
+    @Html.LabelFor(m => m.Idade) @Html.TextBoxFor(m => m.Idade)
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(m => m.CPF) @Html.RadioButtonFor(m => m.TipoUsuario, "CPF")
+        @Html.LabelFor(m => m.CNPJ) @Html.RadioButtonFor(m => m.TipoUsuario, "CNPJ")
+    </div>
+    @Html.TextBoxFor(p => p.CPF, "CPF", new { style = "display:none;", placeholder = "CPF" })
+    @Html.TextBoxFor(p => p.CNPJ, "CNPJ", new { style = "display:none;", placeholder = "CNPJ" })
+    <input type="submit" value="Submit" />
+    <br />
+    @Html.ValidationSummary()
+</center>
+}

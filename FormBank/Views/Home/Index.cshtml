@@ -1,0 +1,17 @@
+﻿@Styles.Render("/Scripts/mycss.css") 
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <center>
+        <p class="lead">Esta é a minha aplicação para um formulário bancário.</p>
+        <img src="~/Image/icon.png" /></img><br />
+    
+    <button class="submit" onclick="window.location.href = '@Url.Action("FormBank", "Home")';">Clique aqui para ir à aplicação! </button></center>
+</div>
+
+
+
+@Scripts.Render("/MeuScript/myscript.js")

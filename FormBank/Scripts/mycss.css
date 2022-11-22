@@ -1,0 +1,17 @@
+﻿body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #222222;
+    color:black;
+    font-weight: 500;
+}
+.jumbotron {
+    background-color: #222222;
+    color: white;
+}
+
+.submit {
+    background-color: antiquewhite;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
